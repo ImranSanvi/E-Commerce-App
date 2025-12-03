@@ -5,9 +5,7 @@ function App() {
 
   return (
     <>
-      <div>
-        <h1>My First App</h1>
-      </div>
+        <h1>My First E-commerce App</h1>
     </>
   )
 }
