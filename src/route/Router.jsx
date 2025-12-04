@@ -3,12 +3,19 @@ import { RouterProvider } from "react-router/dom";
 import Home from "../Pages/Home";
 import About from "../Pages/About";
 import AllProducts from "../Pages/AllProducts";
+import HomeLayout from "../layout/HomeLayout";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home></Home>,
-    loader: ()=> fetch('/trending.json'),
+    element: <HomeLayout></HomeLayout>,
+    children:[
+      {
+        path: '/',
+        element: <Home></Home>,
+        loader: ()=> fetch('trending.json'),
+      }
+    ]
   },
   {
     path: '/about',
