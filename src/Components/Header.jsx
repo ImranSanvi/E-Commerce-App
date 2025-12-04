@@ -8,7 +8,7 @@ const Header = () => {
             <img className='w-[82px] h-[82px] rounded-full' src={logo} alt="" />
             <div className='flex gap-5'>
                 <NavLink to={'/'} className='font-semibold text-[16px]'>Home</NavLink>
-                <NavLink className='font-semibold text-[16px]'>All Products</NavLink>
+                <NavLink to={'/allProduct'} className='font-semibold text-[16px]'>All Products</NavLink>
                 <NavLink to={'/about'} className='font-semibold text-[16px]'>About</NavLink>
             </div>
             <button className='bg-[#7132CA] px-3 py-2 rounded-2xl text-white'>Logout</button>

@@ -3,7 +3,7 @@ import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 import banner from './../assets/banner.jpg'
 import { NavLink, useLoaderData } from 'react-router';
-import Trending from '../Components/ProductCard';
+import ProductCard from '../Components/ProductCard';
 
 const Home = () => {
     const data = useLoaderData();
@@ -24,11 +24,18 @@ const Home = () => {
                     </div>
                 </div>
 
-                <div className='mx-[42px] md:mx-[140px] grid grid-cols-1 md:grid-cols-3 gap-8 m-[50px] md:m-[100px] '>
-                    {
-                        data.map(product => <Trending key={product.id} product={product}></Trending>)
-                    }
+                <div className=' mx-[42px] md:mx-[140px] my-[41px] md:my-[82px]'>
+                    <div className=' mb-[21px] md:mb-[42px] grid grid-cols-1 md:grid-cols-3 gap-8 '>
+                        {
+                            data.map(product => <ProductCard key={product.id} product={product}></ProductCard>)
+                        }
+
+                    </div>
+                    <div className='flex justify-center'>
+                        <NavLink to={'/allProduct'} className='bg-gradient-to-r from-purple-600 to-blue-600 px-3 py-2 rounded-2xl text-white'>Show All</NavLink>
+                    </div>
                 </div>
+
             </main>
 
             <footer>

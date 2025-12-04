@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import Home from "../Pages/Home";
 import About from "../Pages/About";
+import AllProducts from "../Pages/AllProducts";
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,11 @@ const router = createBrowserRouter([
   {
     path: '/about',
     element: <About></About>
+  },
+  {
+    path: '/allProduct',
+    element: <AllProducts></AllProducts>,
+    loader: ()=> fetch('/product.json'),
   },
   {
     path: "/*",

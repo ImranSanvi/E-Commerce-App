@@ -3,7 +3,7 @@ import { BiDollar } from 'react-icons/bi';
 import { IoMdStar } from 'react-icons/io';
 import { NavLink } from 'react-router';
 
-const Trending = ({product}) => {
+const ProductCard = ({product}) => {
     // console.log(product)
     return (
         <div className='rounded-[5px] p-4 border border-gray-300 space-y-5'>
@@ -27,4 +27,4 @@ const Trending = ({product}) => {
     );
 };
 
-export default Trending;
+export default ProductCard;
