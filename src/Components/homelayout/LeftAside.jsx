@@ -2,7 +2,7 @@ import React from 'react';
 import ProductCard from '../ProductCard';
 
 const LeftAside = ({data}) => {
-    console.log(data)
+    // console.log(data)
     return (
         <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
             {
