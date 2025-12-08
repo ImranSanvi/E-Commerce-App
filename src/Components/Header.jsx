@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './../assets/Logo.png'
 import { NavLink } from 'react-router';
+import { FaCartArrowDown } from 'react-icons/fa';
+import { getCartCount } from '../utility/AddToDB';
 
 const Header = () => {
+
+    const [count, setCount] = useState(getCartCount());
+
+    useEffect(() => {
+        const handleStorageChange = () => {
+            setCount(getCartCount());
+        };
+
+        window.addEventListener("storage", handleStorageChange);
+
+        return () => window.removeEventListener("storage", handleStorageChange);
+    }, []);
+
     return (
         <div className='bg-[#5459AC]/70'>
 
@@ -11,7 +26,13 @@ const Header = () => {
                 <div className='flex gap-5'>
                     <NavLink to={'/'} className='font-semibold text-[16px]'>Home</NavLink>
                     <NavLink to={'/allProduct'} className='font-semibold text-[16px]'>All Products</NavLink>
-                    <NavLink to={'/about'} className='font-semibold text-[16px]'>About</NavLink>
+                    <div className='flex items-center relative'>
+                        <NavLink to={'/myCart'} className='font-semibold text-[16px]'>My Cart</NavLink>
+                        <FaCartArrowDown></FaCartArrowDown>
+                        <span className='absolute -top-3 -right-3 bg-amber-600 text-white w-[20px] h-[20px] rounded-full flex justify-center items-center '>
+                            {count}
+                        </span>
+                    </div>
                 </div>
                 <button className='bg-gradient-to-r from-[#059212] to-[#9BEC00] px-3 py-2 rounded-2xl text-white'>Logout</button>
             </div>

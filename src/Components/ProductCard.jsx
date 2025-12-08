@@ -10,12 +10,12 @@ const ProductCard = ({product}) => {
             <img src={product.image} alt="" className='rounded-[5px] h-[300px] w-full' />
             <h2 className='font-bold '>{product.title}</h2>
             <div className='flex justify-between items-center'>
-                <div className='text-amber-500 flex justify-between items-center gap-2'>
+                <div className='text-amber-500 flex justify-between items-center gap-0'>
                     <p>Price : {product.price}</p>
                     <BiDollar></BiDollar>
                 </div>
-                <div className='text-amber-500 flex justify-between items-center gap-2'>
-                    <p>Price : {product.rate}</p>
+                <div className='text-amber-500 flex justify-between items-center gap-0'>
+                    <p>Rating : {product.rating.rate}</p>
                     <IoMdStar></IoMdStar>
                 </div>
             </div>
