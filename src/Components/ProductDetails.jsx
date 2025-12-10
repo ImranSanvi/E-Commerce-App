@@ -1,21 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import { useLoaderData, useParams } from 'react-router';
+import React, { useContext, useEffect, useState } from 'react';
+import { useParams } from 'react-router';
 import Header from './Header';
 import Footer from './Footer';
 import ProductDetailsCard from './ProductDetailsCard';
 import RightAside from './homelayout/RightAside';
+import { APIContext } from '../Provider/ContextProvider';
 
 const ProductDetails = () => {
     const {id} = useParams();
-    const data = useLoaderData();
-    // console.log(data);
+    // console.log(id);
+
+    const {productsData, loading} = useContext(APIContext);
+    // console.log(productsData);
 
     const [products, setProducts] = useState({});
 
-    useEffect( ()=>{
-        const newProduct = data.find(product => product.id == id);
-        setProducts(newProduct);
-    }, [data, id])
+        useEffect(() => {
+        if (!loading) {
+            const found = productsData.find((p) => p.id == id);
+            setProducts(found);
+        }
+    }, [productsData, id, loading]);
+
 
     // console.log(products);
 

@@ -31,4 +31,4 @@ const getCartCount = () => {
     return storedProductData.length;
 };
 
-export {addToDB, getCartCount};
+export {addToDB, getCartCount, getStoredProducts};
