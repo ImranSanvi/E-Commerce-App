@@ -26,9 +26,4 @@ const addToDB = (id) =>{
     }
 }
 
-const getCartCount = () => {
-    const storedProductData = getStoredProducts();
-    return storedProductData.length;
-};
-
-export {addToDB, getCartCount, getStoredProducts};
+export {addToDB, getStoredProducts};

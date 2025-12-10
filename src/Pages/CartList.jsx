@@ -25,9 +25,15 @@ const CartList = () => {
                 <Header></Header>
             </header>
 
-            {
-                cartProduct.map(product => <CartListCard key={product.id} product={product}></CartListCard>)
-            }
+            <main className='my-[41px] md:my-[82px] '>
+                <div className='w-5/6 mx-auto grid grid-cols-1 md:grid-cols-2 gap-5'>
+                    {
+                        cartProduct.map(product => <CartListCard key={product.id} product={product}></CartListCard>)
+                    }
+                </div>
+            </main>
+
+
 
             <footer>
                 <Footer></Footer>

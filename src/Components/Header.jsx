@@ -1,24 +1,9 @@
-import React, { useEffect, useState } from 'react';
+
 import logo from './../assets/Logo.png'
 import { NavLink } from 'react-router';
 import { FaCartArrowDown } from 'react-icons/fa';
-import { getCartCount } from '../utility/AddToDB';
 
 const Header = () => {
-
-    const [count, setCount] = useState(getCartCount());
-
-    useEffect(() => {
-        const updateCount = () => {
-            setCount(getCartCount());
-        };
-
-        // Listen to custom event
-        window.addEventListener("cart-updated", updateCount);
-
-        return () => window.removeEventListener("cart-updated", updateCount);
-    }, []);
-
 
     return (
         <div className='bg-[#5459AC]/70'>
@@ -31,9 +16,6 @@ const Header = () => {
                     <div className='flex items-center relative'>
                         <NavLink to={'/cartList'} className='font-semibold text-[16px]'>My Cart</NavLink>
                         <FaCartArrowDown></FaCartArrowDown>
-                        <span className='absolute -top-3 -right-3 bg-amber-600 text-white w-[19px] h-[19px] rounded-full flex justify-center items-center '>
-                            {count}
-                        </span>
                     </div>
                 </div>
                 <button className='bg-gradient-to-r from-[#059212] to-[#9BEC00] px-3 py-2 rounded-2xl text-white'>Logout</button>

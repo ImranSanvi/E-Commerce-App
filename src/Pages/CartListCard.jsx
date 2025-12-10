@@ -1,19 +1,22 @@
 import React from 'react';
 
 const CartListCard = ({product}) => {
-    console.log(product)
+    const handleRemove= ()=>{
+
+    }
+    
     return (
-        <div className='bg-[#FFCDC9] p-2 rounded-[5px] border-gray-500 my-3 '>
-            <div className='flex gap-5 space-y-5 '>
-                <img className='rounded-[5px] w-[100px] h-[100px] ' src={product.image} alt="" />
-                <div>
+        <div className='bg-[#FFCDC9]/50 px-3 py-3 rounded-[5px] border-gray-500'>
+            <div className='flex justify-between items-center gap-2 grid md:grid-cols-5 '>
+                <img className='rounded-[5px] w-[100px] h-[100px] col-span-1 ' src={product.image} alt="" />
+                <div className='col-span-3'>
                     <h1 className='font bold'>{product.title}</h1>
                     <p>{product.price}</p>
                     <p>{product.category}</p>
                 </div>
-
-                <button className='bg-amber-500 rounded-[10px] p-2 font-bold text-white'>remove items</button>
+                <button onClick={handleRemove} className='bg-amber-500 rounded-[10px] p-2 font-bold text-white my-[18px] col-span-1'>remove</button>
             </div>
+                
         </div>
     );
 };
