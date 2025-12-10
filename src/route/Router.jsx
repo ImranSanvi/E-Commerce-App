@@ -5,7 +5,7 @@ import About from "../Pages/About";
 import AllProducts from "../Pages/AllProducts";
 import HomeLayout from "../layout/HomeLayout";
 import ProductDetails from "../Components/ProductDetails";
-import MyCart from "../Components/MyCart";
+import CartList from "../Pages/CartList";
 
 const router = createBrowserRouter([
   {
@@ -15,14 +15,12 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: ()=> fetch('trending.json'),
       }
     ]
   },
   {
     path: '/allProduct',
     element: <AllProducts></AllProducts>,
-    loader: ()=> fetch('/product.json'),
   },
 
   {
@@ -35,8 +33,8 @@ const router = createBrowserRouter([
     element: <About></About>
   },
   {
-    path: 'myCart',
-    element: <MyCart></MyCart>
+    path: 'cartList',
+    element: <CartList></CartList>
   },
   
   {

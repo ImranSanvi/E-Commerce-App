@@ -21,6 +21,8 @@ const addToDB = (id) =>{
         storedProductData.push(id);
         const data = JSON.stringify(storedProductData);
         localStorage.setItem("productList", data);
+
+        window.dispatchEvent(new Event("cart-updated"));
     }
 }
 

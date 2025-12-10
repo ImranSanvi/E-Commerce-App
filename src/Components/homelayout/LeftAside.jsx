@@ -6,7 +6,7 @@ const LeftAside = ({data}) => {
     return (
         <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
             {
-                data.map(product => <ProductCard product={product}></ProductCard>)
+                data.map(product => <ProductCard key={product.id} product={product}></ProductCard>)
             }
         </div>
     );

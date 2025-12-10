@@ -1,17 +1,14 @@
 import React from 'react';
-import Header from './../Components/Header'
-import Footer from './Footer';
-const MyCart = () => {
+import Header from '../Components/Header';
+import Footer from '../Components/Footer';
+
+const CartList = () => {
     return (
         <div>
             <header>
                 <Header></Header>
             </header>
 
-            <main>
-
-            </main>
-            
             <footer>
                 <Footer></Footer>
             </footer>
@@ -19,4 +16,4 @@ const MyCart = () => {
     );
 };
 
-export default MyCart;
+export default CartList;

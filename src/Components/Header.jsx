@@ -9,14 +9,16 @@ const Header = () => {
     const [count, setCount] = useState(getCartCount());
 
     useEffect(() => {
-        const handleStorageChange = () => {
+        const updateCount = () => {
             setCount(getCartCount());
         };
 
-        window.addEventListener("storage", handleStorageChange);
+        // Listen to custom event
+        window.addEventListener("cart-updated", updateCount);
 
-        return () => window.removeEventListener("storage", handleStorageChange);
+        return () => window.removeEventListener("cart-updated", updateCount);
     }, []);
+
 
     return (
         <div className='bg-[#5459AC]/70'>
@@ -27,9 +29,9 @@ const Header = () => {
                     <NavLink to={'/'} className='font-semibold text-[16px]'>Home</NavLink>
                     <NavLink to={'/allProduct'} className='font-semibold text-[16px]'>All Products</NavLink>
                     <div className='flex items-center relative'>
-                        <NavLink to={'/myCart'} className='font-semibold text-[16px]'>My Cart</NavLink>
+                        <NavLink to={'/cartList'} className='font-semibold text-[16px]'>My Cart</NavLink>
                         <FaCartArrowDown></FaCartArrowDown>
-                        <span className='absolute -top-3 -right-3 bg-amber-600 text-white w-[20px] h-[20px] rounded-full flex justify-center items-center '>
+                        <span className='absolute -top-3 -right-3 bg-amber-600 text-white w-[19px] h-[19px] rounded-full flex justify-center items-center '>
                             {count}
                         </span>
                     </div>
