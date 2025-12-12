@@ -10,14 +10,25 @@ const CartList = () => {
     // console.log(productsData);
     const [cartProduct, setCartProduct] = useState([]);
 
-    useEffect(()=>{
-        if(!loading){
-            const storedProduct = getStoredProducts();
-            const ConvertedStoredProduct = storedProduct.map(id => parseInt(id));
-            const myProductList = productsData.filter(product => ConvertedStoredProduct.includes(product.id));
-            setCartProduct(myProductList);
-        } 
-    }, [productsData])
+    useEffect(() => {
+        if (!loading) {
+            const loadCart = () => {
+                const storedProduct = getStoredProducts();
+                const ConvertedStoredProduct = storedProduct.map(id => parseInt(id));
+                const myProductList = productsData.filter(product =>
+                    ConvertedStoredProduct.includes(product.id)
+                );
+                setCartProduct(myProductList);
+            };
+
+            loadCart();
+
+            window.addEventListener("cart-updated", loadCart);
+
+            return () => window.removeEventListener("cart-updated", loadCart);
+        }
+    }, [productsData, loading]);
+
 
     return (
         <div>

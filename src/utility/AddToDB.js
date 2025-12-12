@@ -26,4 +26,13 @@ const addToDB = (id) =>{
     }
 }
 
-export {addToDB, getStoredProducts};
+const removeFromDB = (id) =>{
+    const storedProductData = getStoredProducts();
+    const updatedList = storedProductData.filter(itemID => itemID !== id);
+    localStorage.setItem("productList", JSON.stringify(updatedList));
+    toast("Remove from cart!!");
+
+    window.dispatchEvent(new Event("cart-updated"));
+}
+
+export {addToDB, getStoredProducts, removeFromDB};

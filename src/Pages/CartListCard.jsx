@@ -1,8 +1,9 @@
 import React from 'react';
+import { removeFromDB } from '../utility/AddToDB';
 
 const CartListCard = ({product}) => {
     const handleRemove= ()=>{
-
+        removeFromDB(product.id);
     }
     
     return (
