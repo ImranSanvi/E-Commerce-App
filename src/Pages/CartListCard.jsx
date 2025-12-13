@@ -1,11 +1,10 @@
-import React from 'react';
-import { removeFromDB } from '../utility/AddToDB';
+import React, { useContext } from 'react';
+import { cartContext } from '../Provider/CartProvider';
 
 const CartListCard = ({product}) => {
-    const handleRemove= ()=>{
-        removeFromDB(product.id);
-    }
     
+    const {removeFromCart} = useContext(cartContext);
+
     return (
         <div className='bg-[#FFCDC9]/50 px-3 py-3 rounded-[5px] border-gray-500'>
             <div className='flex justify-between items-center gap-2 grid md:grid-cols-5 '>
@@ -15,7 +14,7 @@ const CartListCard = ({product}) => {
                     <p>{product.price}</p>
                     <p>{product.category}</p>
                 </div>
-                <button onClick={handleRemove} className='bg-amber-500 rounded-[10px] p-2 font-bold text-white my-[18px] col-span-1'>remove</button>
+                <button onClick={() => removeFromCart(product.id)} className='bg-amber-500 rounded-[10px] p-2 font-bold text-white my-[18px] col-span-1'>remove</button>
             </div>
                 
         </div>

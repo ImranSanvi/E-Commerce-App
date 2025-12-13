@@ -15,7 +15,8 @@ const AllProducts = () => {
     // console.log(productsData);
 
     const [sort, setSort] = useState("");
-    const[displayProducts, setDisplayProducts] = useState([]);
+    const [displayProducts, setDisplayProducts] = useState([]);
+    const [searchItem, setSearchItem] = useState("");
 
     useEffect( ()=>{
         setDisplayProducts(productsData);
@@ -44,6 +45,19 @@ const AllProducts = () => {
         }
     }
 
+    const handleSearch = (e) => {
+        const value = e.target.value;
+        setSearchItem(value);
+        if (value.trim() === "") {
+            setDisplayProducts(productsData);
+        } else {
+            const filteredProducts = productsData.filter(product =>
+                product.title.toLowerCase().includes(value.toLowerCase())
+            );
+            setDisplayProducts(filteredProducts);
+        }
+    }
+
     return (
         <div>
             <header>
@@ -61,7 +75,7 @@ const AllProducts = () => {
                         </ul>
                     </div>
 
-                    <input type="text" name="" id="" className="w-1/2 md:w-[300px] px-4 py-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#658C58]" placeholder='Search Item...'/>
+                    <input onChange={handleSearch} type="text" name="" id="" className="w-1/2 md:w-[300px] px-4 py-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#658C58]" placeholder='Search Item...'/>
                 </div>
 
                 <div className='grid grid-cols-1 md:grid-cols-12 md:gap-15 space-y-15 md:space-y-0'>

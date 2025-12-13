@@ -3,7 +3,6 @@ import { useParams } from 'react-router';
 import Header from './Header';
 import Footer from './Footer';
 import ProductDetailsCard from './ProductDetailsCard';
-import RightAside from './homelayout/RightAside';
 import { APIContext } from '../Provider/ContextProvider';
 import AllProductsRight from './AllProductsRight';
 

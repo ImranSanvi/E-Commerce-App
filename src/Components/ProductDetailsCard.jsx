@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BiDollar } from 'react-icons/bi';
 import { IoMdStar } from 'react-icons/io';
-import { addToDB } from '../utility/AddToDB';
-import { toast } from 'react-toastify';
+import { cartContext } from '../Provider/CartProvider';
 
-const handleAddToCart = (id) =>{
-    addToDB(id);
-}
+// const handleAddToCart = (id) =>{
+//     addToDB(id);
+// }
 
 const ProductDetailsCard = ({products}) => {
     // console.log(products);
+
+    const {addToCart} = useContext(cartContext);
     return (
         <div className='border border-amber-300 p-5 rounded-[10px] space-y-5 '>
             <img className='rounded-[10px] h-[400px]  ' src={products.image} alt="" />
@@ -30,7 +31,7 @@ const ProductDetailsCard = ({products}) => {
             <button className='bg-purple-300 p-2 rounded-[10px]  '>{products.category} </button>
 
            <div className='flex justify-center'>
-                <button onClick={()=>handleAddToCart(products.id)} className='bg-amber-400 rounded-[10px] px-4 py-2 text-white font-bold '>Add to card</button>
+                <button onClick={()=>addToCart(products.id)} className='bg-amber-400 rounded-[10px] px-4 py-2 text-white font-bold '>Add to card</button>
            </div>
 
         </div>

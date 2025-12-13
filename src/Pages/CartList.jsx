@@ -4,30 +4,22 @@ import Footer from '../Components/Footer';
 import { APIContext } from '../Provider/ContextProvider';
 import { getStoredProducts } from '../utility/AddToDB';
 import CartListCard from './CartListCard';
+import { cartContext } from '../Provider/CartProvider';
 
 const CartList = () => {
     const {productsData, loading} = useContext(APIContext);
     // console.log(productsData);
-    const [cartProduct, setCartProduct] = useState([]);
+    // const [cartProduct, setCartProduct] = useState([]);
+    const {cartIds} = useContext(cartContext);
 
-    useEffect(() => {
-        if (!loading) {
-            const loadCart = () => {
-                const storedProduct = getStoredProducts();
-                const ConvertedStoredProduct = storedProduct.map(id => parseInt(id));
-                const myProductList = productsData.filter(product =>
-                    ConvertedStoredProduct.includes(product.id)
-                );
-                setCartProduct(myProductList);
-            };
+    if(loading){
+        return <span className="loading loading-bars loading-xl"></span>
+    }
 
-            loadCart();
+    const cartProducts = productsData.filter(product =>
+        cartIds.includes(product.id)
+    );
 
-            window.addEventListener("cart-updated", loadCart);
-
-            return () => window.removeEventListener("cart-updated", loadCart);
-        }
-    }, [productsData, loading]);
 
 
     return (
@@ -39,7 +31,7 @@ const CartList = () => {
             <main className='my-[41px] md:my-[82px] '>
                 <div className='w-5/6 mx-auto grid grid-cols-1 md:grid-cols-2 gap-5'>
                     {
-                        cartProduct.map(product => <CartListCard key={product.id} product={product}></CartListCard>)
+                        cartProducts.map(product => <CartListCard key={product.id} product={product}></CartListCard>)
                     }
                 </div>
             </main>
