@@ -79,10 +79,10 @@ const AllProducts = () => {
                 </div>
 
                 <div className='grid grid-cols-1 md:grid-cols-12 md:gap-15 space-y-15 md:space-y-0'>
-                    <aside className='md:col-span-9 h-fit sticky top-0'>
+                    <aside className='md:col-span-9 md:h-fit md:sticky md:top-0'>
                         <LeftAside data={displayProducts}></LeftAside>
                     </aside>
-                    <aside className='md:col-span-3 h-fit sticky top-0'>
+                    <aside className='md:col-span-3 md:h-fit md:sticky md:top-0'>
                         <AllProductsRight></AllProductsRight>
                     </aside>
                 </div>
