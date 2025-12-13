@@ -5,6 +5,7 @@ import ProductCard from '../Components/ProductCard';
 import LeftAside from '../Components/homelayout/LeftAside';
 import RightAside from '../Components/homelayout/RightAside';
 import { APIContext } from '../Provider/ContextProvider';
+import AllProductsRight from '../Components/AllProductsRight';
 
 const AllProducts = () => {
     // const data = useLoaderData();
@@ -32,7 +33,7 @@ const AllProducts = () => {
                         <LeftAside data={productsData}></LeftAside>
                     </aside>
                     <aside className='md:col-span-3 h-fit sticky top-0'>
-                        <RightAside></RightAside>
+                        <AllProductsRight></AllProductsRight>
                     </aside>
                 </div>
             </main>

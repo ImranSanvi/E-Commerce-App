@@ -1,31 +1,18 @@
 import React from 'react';
 import { BsGithub } from 'react-icons/bs';
 import { FaFacebook, FaTwitter } from 'react-icons/fa';
-import { FcGoogle } from 'react-icons/fc';
-import offer1 from './../../assets/offer_1.jpg'
-import offer2 from './../../assets/offer_2.jpg'
-import offer3 from './../../assets/offer_3.jpg'
+import offer1 from './../assets/offer_1.jpg'
+import offer2 from './../assets/offer_2.jpg'
+import offer3 from './../assets/offer_3.jpg'
 
-const RightAside = () => {
+const AllProductsRight = () => {
     return (
         <div className='space-y-5'>
-            
-            <div className='border border-gray-400 p-2 rounded-[5px] '>
-                <h1 className='font-bold '>Contact Form</h1>
-                <form className='space-y-4'>
-                    <div>
-                        <label className="text-sm font-semibold text-gray-600 mb-1">Name</label>
-                        <input type="text" required placeholder="Enter your name"className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#5F6F65]"/>
-                    </div>
-                    <div>
-                        <label className="text-sm font-semibold text-gray-600 mb-1">Email</label>
-                        <input type="email" required placeholder="Enter your email"className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#5F6F65]"/>
-                    </div>
-
-                    <div className='flex justify-center'>
-                        <button className='bg-amber-300 rounded-2xl py-2 px-5 text-white font-bold '>Submit</button>
-                    </div>
-                </form>
+            <div className='flex justify-center items-center border border-gray-400 rounded-[10px] p-2 gap-4 bg-gradient-to-r from-[#31694E] via-[#658C58] to-[#BBC863] '>
+                <button className='font-medium text-white'>Sort By</button>
+            </div>
+            <div className='flex justify-center items-center border border-gray-400 rounded-[10px] p-2 gap-4 bg-gradient-to-r from-[#31694E] via-[#658C58] to-[#BBC863]'>
+                <button className='font-medium text-white'>Search</button>
             </div>
             
             <h1 className='font-bold text-[25px]  '>Find Us</h1>
@@ -51,4 +38,4 @@ const RightAside = () => {
     );
 };
 
-export default RightAside;
+export default AllProductsRight;
