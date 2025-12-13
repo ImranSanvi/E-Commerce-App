@@ -8,12 +8,6 @@ import offer3 from './../assets/offer_3.jpg'
 const AllProductsRight = () => {
     return (
         <div className='space-y-5'>
-            <div className='flex justify-center items-center border border-gray-400 rounded-[10px] p-2 gap-4 bg-gradient-to-r from-[#31694E] via-[#658C58] to-[#BBC863] '>
-                <button className='font-medium text-white'>Sort By</button>
-            </div>
-            <div className='flex justify-center items-center border border-gray-400 rounded-[10px] p-2 gap-4 bg-gradient-to-r from-[#31694E] via-[#658C58] to-[#BBC863]'>
-                <button className='font-medium text-white'>Search</button>
-            </div>
             
             <h1 className='font-bold text-[25px]  '>Find Us</h1>
             <div className='flex items-center border border-gray-400 rounded-[10px] p-2 gap-4'>

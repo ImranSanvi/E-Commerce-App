@@ -5,6 +5,7 @@ import Footer from './Footer';
 import ProductDetailsCard from './ProductDetailsCard';
 import RightAside from './homelayout/RightAside';
 import { APIContext } from '../Provider/ContextProvider';
+import AllProductsRight from './AllProductsRight';
 
 const ProductDetails = () => {
     const {id} = useParams();
@@ -36,7 +37,7 @@ const ProductDetails = () => {
                     <ProductDetailsCard key={id} products={products}></ProductDetailsCard>
                 </aside>
                 <aside className='col-span-3 md:h-fit md:sticky md:top-0'>
-                    <RightAside></RightAside>
+                    <AllProductsRight></AllProductsRight>
                 </aside>
            </main>
 

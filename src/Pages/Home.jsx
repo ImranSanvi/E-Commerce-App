@@ -1,8 +1,5 @@
 import React, { useContext } from 'react';
-import Header from '../Components/Header';
-import Footer from '../Components/Footer';
 import { NavLink} from 'react-router';
-import ProductCard from '../Components/ProductCard';
 import LeftAside from '../Components/homelayout/LeftAside';
 import RightAside from '../Components/homelayout/RightAside';
 import { APIContext } from '../Provider/ContextProvider';
